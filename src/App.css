@@ -1,10 +1,39 @@
 #root {
-  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   text-align: center;
+  width: 100%;
 }
 
 body {
   font-family: 'Cinzel', serif;
+}
+
+.column svg {
+  fill: #242424;
+  stroke: slategray;
+}
+
+@media (prefers-color-scheme: light) {
+  .column svg {
+    fill: white;
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  15% {
+    background-position: 10% 0;
+  }
+  85% {
+    background-position: 90% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
 }

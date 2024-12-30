@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .bg-vertical-stripes {
+    animation: slide 1s linear;
+    background-image: linear-gradient(to right, slategray 1px, #242424 1px);
+    background-size: 20% 100%;
+  }
+  @media (prefers-color-scheme: light) {
+    .bg-vertical-stripes {
+      background-image: linear-gradient(to right, slategray 1px, white 1px);
+    }
+  }
+  @media (prefers-reduced-motion) {
+    bg-vertical-stripes {
+      animation: none;
+    }
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -28,7 +46,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: grid;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;

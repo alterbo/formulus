@@ -1,11 +1,15 @@
 import * as Yup from 'yup';
 
-const FormulusSchema = Yup.object().shape({
-    type: Yup.string().oneOf(['email', 'phone', 'text', 'number'], 'Invalid type'),
-    email: Yup.string().email(),
-    number: Yup.number(),
-    phone: Yup.string().matches(/^[0-9]+$/, 'Phone number is not valid'),
-    text: Yup.string(),
+export const FormulusSchema = Yup.object().shape({
+    type: Yup.string().oneOf(['email', 'phone', 'number'], 'Invalid type'),
+    input: Yup.string().when('type', (type, schema) => {
+        return type[0] === 'email'
+            ? schema.email('Invalid email').required('Required')
+            : type[0] === 'phone'
+            ? schema.matches(/^[0-9]+$/, 'Phone number is not valid').required('Required')
+            : type[0] === 'number'
+            ? Yup.number().typeError('Must be a number').required('Required')
+            : schema.required('Required');
+    }),
 });
 
-export default FormulusSchema;

@@ -58,9 +58,9 @@ export const Formulus = () => {
             <Form className="border-b border-slate-400 grow gap-12 mb-3 mt-12 w-full">
                 <div className="flex flex-wrap gap-6 justify-around h-full content-end mx-auto px-12">
                     <div className="flex flex-col px-3">
-                        <div className="border border-slate-200 p-2 rounded dark:border-slate-600">
+                        <div className="border border-slate-300 p-2 rounded dark:border-slate-500">
                             <label className="block mb-2" htmlFor="type">Type</label>
-                            <Field className="border border-slate-200 p-1 dark:border-slate-600" as="select" id="type" name="type">
+                            <Field className="border border-slate-400 p-1 dark:border-slate-500" as="select" id="type" name="type">
                                 <option value="email">Email</option>
                                 <option value="tel">Phone</option>
                                 <option value="number">Number</option>
@@ -78,7 +78,7 @@ export const Formulus = () => {
                         </FormulusColumn>
                     </div>
                     <div className="flex flex-col basis-3/6 px-3 relative">
-                        <div className="border border-slate-200 p-2 rounded dark:border-slate-600">
+                        <div className="border border-slate-400 p-2 rounded dark:border-slate-500">
                             <label className="block mb-2" htmlFor={values.type}>Input</label>
                             <Field
                                 className="border border-slate-400 p-1 w-100"
@@ -89,8 +89,8 @@ export const Formulus = () => {
                             {errors[values.type as keyof typeof errors] && <div>{errors[values.type as keyof typeof errors]}</div>}
                         </div>
                         <FormulusColumn key={validating.toString()} validating={validating}>
-                            <div className="content-between grid grid-cols-6 grid-rows-2 h-full min-w-[240px]">
-                                <div className="col-start-1 col-span-4">
+                            <div className="content-between grid grid-cols-6 grid-rows-2 h-full max-h-[60vh]">
+                                <div className="col-start-1 col-span-4 max-h-[300px]">
                                     {!values.input ? <FourDefault /> : Object.keys(errors).length > 0 && !isValid ? <FourError /> : isValid ? <FourSuccess /> : <FourDefault />}
                                 </div>
                                 <div className="col-start-1 col-end-4 self-end">
@@ -103,7 +103,7 @@ export const Formulus = () => {
                         </FormulusColumn>
                     </div>
                     <div className="self-end">
-                        <div className="border border-slate-200 p-2 rounded dark:border-slate-600">
+                        <div className="border border-slate-400 p-2 rounded dark:border-slate-500">
                             <button
                                 className="border border-slate-400"
                                 onClick={() => handleValidation(validateForm)}

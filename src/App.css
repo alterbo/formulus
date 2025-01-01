@@ -14,13 +14,13 @@ body {
 
 .column svg {
   fill: #242424;
-  stroke: #778496;
+  stroke: #bfd3ed;
 }
 
 @media (prefers-color-scheme: light) {
   .column svg {
     fill: white;
-    stroke: #afc1d9;
+    stroke: #57616f;
   }
 }
 
